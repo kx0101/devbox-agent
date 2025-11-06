@@ -14,7 +14,7 @@
  <ItemGroup>
    <PackageReference Include="Azure.AI.OpenAI" Version="2.5.0-beta.1" />
    <PackageReference Include="Azure.Identity" Version="1.17.0" />
-   <PackageReference Include="Microsoft.Agents.AI" Version="1.0.0-preview.251104.1" />
+   <PackageReference Include="Microsoft.Agents.AI" Version="1.0.0-preview.251105.1" />
    <PackageReference Include="Microsoft.Agents.AI.OpenAI" Version="1.0.0-preview.251028.1" />
    <PackageReference Include="Microsoft.Extensions.AI" Version="9.10.2" />
    <PackageReference Include="System.Text.Json" Version="10.0.0-rc.2.25502.107" />

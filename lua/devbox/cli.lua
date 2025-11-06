@@ -1,17 +1,20 @@
 #!/usr/bin/env lua
 
-local devbox = require("devbox.core")
 local luv = require("luv")
 
-local args = table.concat(arg, " ")
-if args == "" then
-    print("Usage: devbox <prompt>")
+local command_name = arg[1]
+if not command_name then
+    print("Usage: devbox <command> [args]")
     os.exit(1)
 end
 
-devbox.ask(args, nil, function(chunk)
-    io.write(chunk)
-    io.flush()
-end)
+table.remove(arg, 1)
 
+local ok, command = pcall(require, "devbox.commands." .. command_name)
+if not ok or type(command) ~= "function" then
+    io.stderr:write("Unknown command: " .. tostring(command_name) .. "\n")
+    os.exit(1)
+end
+
+command(arg)
 luv.run()
