@@ -1,6 +1,7 @@
 #!/usr/bin/env lua
 
-local devbox = require('devbox')
+local devbox = require("devbox.core")
+local luv = require("luv")
 
 local args = table.concat(arg, " ")
 if args == "" then
@@ -8,4 +9,9 @@ if args == "" then
     os.exit(1)
 end
 
-print(devbox.ask(args))
+devbox.ask(args, nil, function(chunk)
+    io.write(chunk)
+    io.flush()
+end)
+
+luv.run()
